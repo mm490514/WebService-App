@@ -1,6 +1,6 @@
 # Web Service Crasvia
 
-O **Crasvia** é um projeto de serviço web que oferece funcionalidades para lidar com o envio de imagens e a sincronização de dados. Este README fornece uma visão geral dos principais componentes e métodos dentro do projeto.
+O **Crasvia** é um projeto de serviço web que oferece funcionalidades para lidar com o envio de imagens, sincronização de dados e carregamento de informações, incluindo autenticação de usuários. Este README fornece uma visão geral dos principais componentes e métodos dentro do projeto.
 
 ## Índice
 
@@ -9,10 +9,12 @@ O **Crasvia** é um projeto de serviço web que oferece funcionalidades para lid
   - [EnviarFoto](#enviarfoto)
   - [Base64ParaImagem](#base64paraimagem)
   - [SincronizaDados](#sincronizadados)
+  - [Carregar](#carregar)
+  - [Login](#login)
 
 ## Introdução
 
-O projeto **Crasvia** inclui uma classe de serviço web chamada `Service` que permite aos usuários fazer upload de imagens e sincronizar dados. O serviço é construído usando tecnologias ASP.NET e oferece vários métodos para realizar essas tarefas.
+O projeto **Crasvia** inclui uma classe de serviço web chamada `Service` que permite aos usuários fazer upload de imagens, sincronizar dados, carregar informações e realizar autenticação. O serviço é construído usando tecnologias ASP.NET e oferece vários métodos para realizar essas tarefas.
 
 ## Métodos
 
@@ -40,7 +42,25 @@ Este método converte uma string de imagem codificada em base64 em um objeto `Sy
 public string SincronizaDados(string dados)
 ```
 
-O método `SincronizaDados` é usado para sincronização de dados. Ele recebe uma string contendo dados em um formato específico. O método processa esses dados e executa comandos SQL para sincronizar os dados recebidos com um banco de dados. Ele retorna "OK" após uma sincronização bem-sucedida ou uma string vazia em caso de erros.
+O método `SincronizaDados` é usado para sincronização de dados. Ele recebe uma string contendo dados em um formato específico e executa comandos SQL para sincronizar os dados recebidos com um banco de dados.
+
+### Carregar
+
+```csharp
+[WebMethod]
+public string Carregar(string banco)
+```
+
+O método `Carregar` é usado para carregar informações a partir de um banco de dados específico. Ele executa uma consulta SQL no banco e retorna uma string contendo os resultados da consulta.
+
+### Login
+
+```csharp
+[WebMethod]
+public string Login(String usuario, String senha, String monitoracao)
+```
+
+O método `Login` é usado para autenticar um usuário no sistema. Ele verifica as credenciais fornecidas (usuário e senha) e determina se o usuário está ativo, vinculado a uma monitoração e associado a uma concessionária. Se a autenticação for bem-sucedida, o método retorna informações relevantes sobre a concessonaria e rodovias vinculadas ao usuário.
 
 ## Configuração
 
@@ -48,10 +68,12 @@ O projeto utiliza uma string de conexão chamada "webConnectionString1" para se 
 
 ## Uso
 
-Para usar o serviço web **Crasvia**, você pode implantá-lo em um servidor web que suporte aplicativos ASP.NET. Depois de implantado, você pode chamar os métodos expostos por meio de requisições HTTP para realizar o envio de imagens e tarefas de sincronização de dados.
+Para usar o serviço web **Crasvia**, você pode implantá-lo em um servidor web que suporte aplicativos ASP.NET. Depois de implantado, você pode chamar os métodos expostos por meio de requisições HTTP para realizar o envio de imagens, sincronização de dados, carregamento de informações e autenticação.
 
 Lembre-se de lidar com a segurança e os casos de erro de maneira apropriada, com base no ambiente de implantação e no caso de uso.
 
 ## Aviso
 
 Este README fornece uma visão geral básica do projeto **Crasvia** e de seus métodos. Para obter detalhes de implementação detalhados, tratamento de erros, considerações de segurança e diretrizes de implantação, são necessárias documentação adicional e testes.
+
+Para dúvidas ou assistência, não hesite em entrar em contato com os mantenedores do projeto.
