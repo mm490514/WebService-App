@@ -55,5 +55,3 @@ Lembre-se de lidar com a segurança e os casos de erro de maneira apropriada, co
 ## Aviso
 
 Este README fornece uma visão geral básica do projeto **Crasvia** e de seus métodos. Para obter detalhes de implementação detalhados, tratamento de erros, considerações de segurança e diretrizes de implantação, são necessárias documentação adicional e testes.
-
-Para dúvidas ou assistência, não hesite em entrar em contato com os mantenedores do projeto.
